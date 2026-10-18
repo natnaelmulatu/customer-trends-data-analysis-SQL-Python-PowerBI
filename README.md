@@ -56,6 +56,29 @@ Running targeted SQL queries across the dataset exposed several key behavioral i
 
 While 3,116 customers fell into the Loyal segment based on repeat purchase history, only 27% of total customers (1,053 buyers) were enrolled in the subscription program. Interestingly, average spend between subscribers ($59.49) and non-subscribers ($59.87) was nearly identical. The business was retaining repeat buyers, but completely failing to monetize or formalize that loyalty into predictable subscription revenue.
 
+<br>
+
+<img src="images/1791557993048.png" alt="Logo" width="600">
+
+<br>
+
+<img src="images/1791558060375.png" alt="Logo" width="600">
+
+<br>
+
+## 2. Discount Reliance vs. High-Value Spenders
+
+Promotions drive sales volume, but do they erode profit margins unnecessarily? My SQL analysis revealed two critical nuances:
+
+<br>
+
+  - **839 customers** used discounts while still spending above the average store transaction value ($59.76). These high-value buyers did not require promotional pricing to make substantial purchases. 
+  - Category-level discount dependence varied drastically: **Hats (50.00%), Sneakers (49.66%), and Coats (49.07%)** had roughly half of their total order volume tied directly to promotional discounts.
+
+<br>
+
+
+
 
 
 
