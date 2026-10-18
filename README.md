@@ -93,6 +93,25 @@ Total revenue reached **$233,081** across the portfolio, led by male shoppers ($
 
 <img src="images/1791558323264.png" alt="Logo" width="600">
 
+<br>
+
+## Visualizing Impact: The Power BI Executive Dashboard
+
+To turn query results into an intuitive visual story, I built an interactive Power BI Dashboard designed for rapid decision-making by executive leadership. 
+
+<br>
+
+The visual layout prioritizes key operational metrics:
+
+<br>
+
+  - **Core Business KPIs:** Top-line cards immediately highlight total customer count (3.9K), average basket size ($59.76), and customer satisfaction (3.75 average review rating). 
+  - **Dynamic Slicers:** Stakeholders can slice transaction volumes and revenue by Subscription Status, Gender, Shipping Method, and Product Category (Accessories, Clothing, Footwear, Outerwear). 
+  - **Demographic Breakdown:** Visual bars clearly illustrate sales volume and total spend across age cohorts, helping merchandising teams identify top-performing product lines like Blouses, Jewelry, and Jackets at a glance.
+
+<br>
+
+[![Watch the Demo](images/Power_BI_Picture.png)](https://youtu.be/YdjJWSYvqYo) 
 
 
 
