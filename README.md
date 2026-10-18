@@ -18,4 +18,47 @@ The primary objective wasn't just to aggregate historical metrics, but to solve 
 
 <br>
 
+To answer this comprehensively, I designed and executed a complete end-to-end analytics workflow. 
+<br> 
+
+- **Data Preparation and Engineering (Python):** Cleaning, imputing, and feature-engineering raw transactional data. 
+- **Relational Database Analysis (SQL / PostgreSQL):** Modeling transactions in a relational database to run deep-dive queries on customer loyalty, discount dependencies, and revenue distribution.
+- **Executive Visualization (Power BI):** Building an interactive dashboard to give non-technical stakeholders direct exploration capabilities. 
+- **Strategic Roadmap:** Translating data patterns into clear business recommendations to maximize revenue and loyalty.
+<br>
+
+## Unearthing the Signal: Engineering the Data Pipeline
+
+Every reliable insight starts with disciplined data hygiene. Analyzing 3,900 customer records across 18 transactional variables required cleaning before attempting any deep-dive querying.
+<br> 
+
+Using Python and Pandas, I focused on preparing the dataset for seamless relational modeling:
+<br>
+
+- **Imputation over Deletion:** Missing values in product review ratings were imputed using category-specific median ratings to preserve total record volume without biasing overall distributions. 
+- **Schema Standardization:** Column headers were converted to standard snake_case, and redundant features (such as duplicate promo code indicators) were dropped to streamline downstream database performance. 
+- **Feature Engineering:** I created demographic bins (age_group) and structured purchase frequency intervals to enable granular demographic querying. 
+<br>
+
+Once transformed, the clean dataset was ingested directly into PostgreSQL, creating a structured relational foundation for advanced analytical queries.
+
+<br>
+
+## What the Queries Revealed: The Story Behind the Numbers
+
+Running targeted SQL queries across the dataset exposed several key behavioral insights that high-level averages usually obscure:
+
+<br>
+
+**1. The Subscription Bottleneck**
+
+<br>
+
+While 3,116 customers fell into the Loyal segment based on repeat purchase history, only 27% of total customers (1,053 buyers) were enrolled in the subscription program. Interestingly, average spend between subscribers ($59.49) and non-subscribers ($59.87) was nearly identical. The business was retaining repeat buyers, but completely failing to monetize or formalize that loyalty into predictable subscription revenue.
+
+
+
+
+
+
 
