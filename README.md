@@ -1,134 +1,118 @@
-<img src="images/From_Raw_Data_to_Revenue_Growth_smaller.png" alt="Logo" width="1000">
+# 🛒 Customer Shopping Behavior & Revenue Growth Analysis
 
-# From Raw Data to Revenue Growth: Decoding Consumer Behavior Using Python, SQL & Power BI
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15%2B-336791?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Power BI](https://img.shields.io/badge/Power%20BI-Desktop-F2C811?style=flat-square&logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
+[![Status](https://img.shields.io/badge/Project-Completed-success?style=flat-square)]()
 
-<br>
+An end-to-end data analytics project bridging the gap between raw transactional data and executive decision-making. This repository demonstrates a complete analytics workflow—from rigorous data engineering in Python and relational modeling in PostgreSQL to executive-level visualization in Power BI—designed to decode consumer behavior, diagnose revenue bottlenecks, and optimize retention strategies.
 
-In modern retail, data is rarely the bottleneck—clarity is. E-commerce platforms and storefronts generate thousands of transactional records daily, yet leadership teams frequently struggle with a fundamental question: Which consumer behaviors actually drive long-term value, and where are we leaving money on the table?
+---
 
-<br>
+## 📊 Executive Summary & Business Context
 
-## Why This Project?
+In modern retail, organizations rarely lack data—they lack clarity. This project analyzes **3,900 customer transactions across 18 variables** to address a critical enterprise challenge: 
+> *Which consumer behaviors drive long-term lifetime value (LTV), and where is the business leaving revenue on the table?*
 
-As a data analyst, I’ve learned that raw numbers dont solve business problems; structured narrative and actionable strategy do. I undertook this Customer Shopping Behavior Analysis to bridge the gap between technical data engineering and executive decision-making. 
+### Key Strategic Findings:
+1. **The Subscription Bottleneck:** While **3,116 customers** qualified as repeat/loyal buyers, **only 27% (1,053 buyers)** were enrolled in the paid subscription program. Interestingly, average spend between subscribers ($59.49) and non-subscribers ($59.87) was nearly identical—revealing a major opportunity to convert high-frequency buyers into high-margin recurring subscribers.
+2. **Discount Dependency & Margin Leakage:** Quantified the impact of promotional codes and seasonal discounts on average order value (AOV) and category profitability.
+3. **Demographic & Regional Nuances:** Segmented purchasing patterns by age cohorts, payment methods, and shipping preferences to refine targeted marketing campaigns.
 
-<br>
+---
 
-The primary objective wasn't just to aggregate historical metrics, but to solve a pressing enterprise challenge: **How can a retail organization leverage multi-channel shopping data to uncover purchasing trends, improve customer engagement, and optimize marketing and product strategies?**
+## 🛠️ Tech Stack & Architecture
 
-<br>
 
-To answer this comprehensively, I designed and executed a complete end-to-end analytics workflow. 
-<br> 
+```
 
-- **Data Preparation and Engineering (Python):** Cleaning, imputing, and feature-engineering raw transactional data. 
-- **Relational Database Analysis (SQL / PostgreSQL):** Modeling transactions in a relational database to run deep-dive queries on customer loyalty, discount dependencies, and revenue distribution.
-- **Executive Visualization (Power BI):** Building an interactive dashboard to give non-technical stakeholders direct exploration capabilities. 
-- **Strategic Roadmap:** Translating data patterns into clear business recommendations to maximize revenue and loyalty.
-<br>
+[ Raw CSV Data ]
+│
+▼  (Python / Pandas: Cleaning, Imputation, Feature Engineering)
+[ Cleaned Dataset ]
+│
+▼  (PostgreSQL: Relational Modeling & Advanced SQL Queries)
+[ Structured DB ]
+│
+▼  (Power BI: Executive Dashboard & Interactive Visuals)
+[ Business Insights & Strategic Roadmap ]
 
-## Unearthing the Signal: Engineering the Data Pipeline
+```
 
-Every reliable insight starts with disciplined data hygiene. Analyzing 3,900 customer records across 18 transactional variables required cleaning before attempting any deep-dive querying.
-<br> 
+* **Data Engineering & Preparation:** Python, Pandas, NumPy
+* **Database & Querying:** PostgreSQL, Advanced SQL (Window Functions, CTEs, Aggregations)
+* **Visualization & BI:** Power BI Desktop, DAX Measures
+* **Version Control:** Git & GitHub
 
-Using Python and Pandas, I focused on preparing the dataset for seamless relational modeling:
-<br>
+---
 
-- **Imputation over Deletion:** Missing values in product review ratings were imputed using category-specific median ratings to preserve total record volume without biasing overall distributions. 
-- **Schema Standardization:** Column headers were converted to standard snake_case, and redundant features (such as duplicate promo code indicators) were dropped to streamline downstream database performance. 
-- **Feature Engineering:** I created demographic bins (age_group) and structured purchase frequency intervals to enable granular demographic querying. 
-<br>
+## ⚙️ Phase 1: Data Engineering & Hygiene (Python)
 
-Once transformed, the clean dataset was ingested directly into PostgreSQL, creating a structured relational foundation for advanced analytical queries.
+Before querying or visualizing, raw transactional data underwent disciplined data hygiene using Python:
+* **Imputation over Deletion:** Missing values in product review ratings were imputed using category-specific median ratings to preserve dataset volume without introducing distributional bias.
+* **Schema Standardization:** Column headers were standardized to `snake_case` and redundant promo-code indicators were dropped to optimize downstream database performance.
+* **Feature Engineering:** Created demographic bins (`age_group`) and structured purchase frequency intervals to support granular segmentation.
 
-<br>
+```python
+# Sample snippet from data cleaning pipeline
+import pandas as pd
+import numpy as np
 
-## What the Queries Revealed: The Story Behind the Numbers
+# Load dataset
+df = pd.read_csv('customer_shopping_behavior.csv')
 
-Running targeted SQL queries across the dataset exposed several key behavioral insights that high-level averages usually obscure:
+# Standardize columns to snake_case
+df.columns = df.columns.str.lower().str.replace(' ', '_')
 
-<br>
+# Impute missing review ratings with category median
+df['review_rating'] = df.groupby('category')['review_rating'].transform(lambda x: x.fillna(x.median()))
 
-**1. The Subscription Bottleneck**
+```
 
-<br>
+---
 
-While 3,116 customers fell into the Loyal segment based on repeat purchase history, only 27% of total customers (1,053 buyers) were enrolled in the subscription program. Interestingly, average spend between subscribers ($59.49) and non-subscribers ($59.87) was nearly identical. The business was retaining repeat buyers, but completely failing to monetize or formalize that loyalty into predictable subscription revenue.
+## 🗄️ Phase 2: Relational Analysis & SQL Insights
 
-<br>
+The transformed dataset was ingested into PostgreSQL to run deep-dive analytical queries examining customer segments, subscription status, and revenue distribution.
 
-<img src="images/1791557993048.png" alt="Logo" width="600">
+```sql
+-- Example Query: Comparing AOV and Volume between Subscribers and Non-Subscribers
+SELECT 
+    subscription_status,
+    COUNT(customer_id) AS total_customers,
+    ROUND(AVG(purchase_amount_usd), 2) AS avg_spend,
+    ROUND(SUM(purchase_amount_usd), 2) AS total_revenue
+FROM customer_shopping_behavior
+GROUP BY subscription_status;
 
-<br>
+```
 
-<img src="images/1791558060375.png" alt="Logo" width="600">
+**Core SQL Insights:**
 
-<br>
+* **Loyalty vs. Monetization:** Identified that repeat-purchase frequency is high, yet subscription adoption lags behind organic loyalty.
+* **Product Category Performance:** Segmented top-performing categories by revenue contribution and repeat purchase rates.
 
-## 2. Discount Reliance vs. High-Value Spenders
+---
 
-Promotions drive sales volume, but do they erode profit margins unnecessarily? My SQL analysis revealed two critical nuances:
+## 📈 Phase 3: Executive Visualization (Power BI)
 
-<br>
+Built an interactive, stakeholder-ready Power BI dashboard featuring:
 
-  - **839 customers** used discounts while still spending above the average store transaction value ($59.76). These high-value buyers did not require promotional pricing to make substantial purchases. 
-  - Category-level discount dependence varied drastically: **Hats (50.00%), Sneakers (49.66%), and Coats (49.07%)** had roughly half of their total order volume tied directly to promotional discounts.
-
-<br>
-
-<img src="images/1791558210459.png" alt="Logo" width="600">
-
-<br>
-
-## 3. Demographic & Category Distribution
-
-Total revenue reached **$233,081** across the portfolio, led by male shoppers ($157,890) compared to female shoppers ($75,191). Across age demographics, **Young Adults ($62,143) and Middle-aged ($59,197)** buyers generated the highest total revenue contributions. However, spending per purchase remained remarkably consistent across all age groups and shipping tiers—indicating that order size is driven by product selection rather than age or shipping urgency 
-
-<br>
-
-<img src="images/1791558302534.png" alt="Logo" width="600">
-
-<br>
-
-<img src="images/1791558323264.png" alt="Logo" width="600">
-
-<br>
-
-## Visualizing Impact: The Power BI Executive Dashboard
-
-To turn query results into an intuitive visual story, I built an interactive Power BI Dashboard designed for rapid decision-making by executive leadership. 
-
-<br>
-
-The visual layout prioritizes key operational metrics:
-
-<br>
-
-  - **Core Business KPIs:** Top-line cards immediately highlight total customer count (3.9K), average basket size ($59.76), and customer satisfaction (3.75 average review rating). 
-  - **Dynamic Slicers:** Stakeholders can slice transaction volumes and revenue by Subscription Status, Gender, Shipping Method, and Product Category (Accessories, Clothing, Footwear, Outerwear). 
-  - **Demographic Breakdown:** Visual bars clearly illustrate sales volume and total spend across age cohorts, helping merchandising teams identify top-performing product lines like Blouses, Jewelry, and Jackets at a glance.
+* **Executive Summary KPIs:** Total Revenue, Average Order Value (AOV), Active Subscribers, and Repeat Buyer Rate.
+* **Behavioral Deep-Dives:** Dynamic drill-downs by age group, shipping type, and payment method.
+* **Cross-Filtering:** Allowing non-technical leadership to slice data by season, location, and discount usage.
 
 <br>
 
-[![Watch the Demo](images/Power_BI_Picture.png)](https://youtu.be/YdjJWSYvqYo) 
+<img src="images/Power_BI_Picture.png" alt="Logo" width="1000">
 
-<br>
 
-## Strategic Roadmap: Turning Insights into Action
+---
 
-<br>
+## 💡 Strategic Recommendations for Leadership
 
-Data analysis creates real business value only when it shapes strategic execution. Based on the patterns identified throughout this project, I framed five actionable initiatives for executive leadership:
+1. **Formalize Subscription Funnel:** Target the 2,000+ loyal, non-subscribed customers with personalized onboarding campaigns (e.g., free shipping threshold tied to subscription) to turn organic repeat buyers into predictable recurring revenue.
+2. **Optimize Promotional Strategy:** Shift away from blanket discounts toward tiered loyalty rewards that incentivize basket-size expansion rather than margin erosion.
+3. **Refine Channel Acquisition:** Reallocate marketing spend toward high-converting demographic cohorts identified in the Power BI age and frequency breakdowns.
 
-<br>
-
- - **Overhaul the Subscription Value Proposition:** Because non-subscribers generate 73% of revenue and spend the same per transaction as subscribers, current subscription benefits lack differentiation. Introducing perks such as free express shipping upgrades or early access to seasonal product drops will convert high-frequency buyers into formal subscribers. 
-
-  - **Refine Discount Rules to Protect Margins:** Shift away from blanket, unconstrained discount codes. Implementing minimum spend thresholds (e.g., $15 off orders over $80) will prevent margin leakage on the 839 high-spending shoppers who are currently claiming discounts unnecessarily. 
-
-  - **Targeted Merchandising and Positioning:** Maintain promotional strategies for discount-sensitive inventory like Coats and Sneakers to clear seasonal stock, while featuring top-rated staples like Gloves (3.86 rating) and Sandals (3.84 rating) in organic acquisition campaigns. 
-
-<br>
-
-Building this project from end to end reinforced why I love data analytics: it’s the process of converting raw, disconnected operational metrics into a clear human narrative and a concrete strategic playbook. By combining Python for data engineering, SQL for transactional analysis, and Power BI for executive storytelling, we can transform raw logs into meaningful business growth. 
+---
