@@ -77,8 +77,21 @@ Promotions drive sales volume, but do they erode profit margins unnecessarily? M
 
 <br>
 
+<img src="images/1791558210459.png" alt="Logo" width="600">
 
+<br>
 
+## 3. Demographic & Category Distribution
+
+Total revenue reached **$233,081** across the portfolio, led by male shoppers ($157,890) compared to female shoppers ($75,191). Across age demographics, **Young Adults ($62,143) and Middle-aged ($59,197)** buyers generated the highest total revenue contributions. However, spending per purchase remained remarkably consistent across all age groups and shipping tiers—indicating that order size is driven by product selection rather than age or shipping urgency 
+
+<br>
+
+<img src="images/1791558302534.png" alt="Logo" width="600">
+
+<br>
+
+<img src="images/1791558323264.png" alt="Logo" width="600">
 
 
 
