@@ -1,4 +1,4 @@
-<img src="images/From_Raw_Data_to_Revenue_Growth.png" alt="Logo" width="1000">
+<img src="images/From_Raw_Data_to_Revenue_Growth_smaller.png" alt="Logo" width="1000">
 
 # From Raw Data to Revenue Growth: Decoding Consumer Behavior Using Python, SQL & Power BI
 
