@@ -113,7 +113,22 @@ The visual layout prioritizes key operational metrics:
 
 [![Watch the Demo](images/Power_BI_Picture.png)](https://youtu.be/YdjJWSYvqYo) 
 
+<br>
 
+## Strategic Roadmap: Turning Insights into Action
 
+<br>
 
+Data analysis creates real business value only when it shapes strategic execution. Based on the patterns identified throughout this project, I framed five actionable initiatives for executive leadership:
 
+<br>
+
+ - **Overhaul the Subscription Value Proposition:** Because non-subscribers generate 73% of revenue and spend the same per transaction as subscribers, current subscription benefits lack differentiation. Introducing perks such as free express shipping upgrades or early access to seasonal product drops will convert high-frequency buyers into formal subscribers. 
+
+  - **Refine Discount Rules to Protect Margins:** Shift away from blanket, unconstrained discount codes. Implementing minimum spend thresholds (e.g., $15 off orders over $80) will prevent margin leakage on the 839 high-spending shoppers who are currently claiming discounts unnecessarily. 
+
+  - **Targeted Merchandising and Positioning:** Maintain promotional strategies for discount-sensitive inventory like Coats and Sneakers to clear seasonal stock, while featuring top-rated staples like Gloves (3.86 rating) and Sandals (3.84 rating) in organic acquisition campaigns. 
+
+<br>
+
+Building this project from end to end reinforced why I love data analytics: it’s the process of converting raw, disconnected operational metrics into a clear human narrative and a concrete strategic playbook. By combining Python for data engineering, SQL for transactional analysis, and Power BI for executive storytelling, we can transform raw logs into meaningful business growth. 
