@@ -122,7 +122,7 @@ Built an interactive, stakeholder-ready Power BI dashboard featuring:
 customer-trends-data-analysis-SQL-Python-PowerBI/
 │
 ├── 📜 Customer_Shopping_Behavior_Analysis.ipynb      # Jupyter Notebook for data processing and analysis
-├── 📜 customer_behavior_sql_queries.sql              # SQL queries used for database insights extraction
+├── 📜 customer_behavior_SQL_queries.sql              # SQL queries used for database insights extraction
 ├── 📊 customer_behavior_dashboard.pbix               # Power BI dashboard file for visual data storytelling
 └── 📄 README.md                                      # Project documentation and guide
 
