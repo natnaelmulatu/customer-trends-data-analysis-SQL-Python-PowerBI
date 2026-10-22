@@ -125,6 +125,7 @@ customer-trends-data-analysis-SQL-Python-PowerBI/
 ├── 📜 customer_behavior_SQL_queries.sql              # SQL queries used for database insights extraction
 ├── 📊 customer_behavior_dashboard.pbix               # Power BI dashboard file for visual data storytelling
 ├── 📊 Business Problem Document.pdf                  # Business problem given by stakeholders to analyze
+├── 📊 Business Problem Document.pdf                  # Business problem given by stakeholders to analyze
 └── 📄 README.md                                      # Project documentation and guide
 
 
