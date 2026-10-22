@@ -106,7 +106,6 @@ Built an interactive, stakeholder-ready Power BI dashboard featuring:
 
 <img src="images/Power_BI_Picture.png" alt="Logo" width="1000">
 
-
 ---
 
 ## 💡 Strategic Recommendations for Leadership
@@ -116,3 +115,15 @@ Built an interactive, stakeholder-ready Power BI dashboard featuring:
 3. **Refine Channel Acquisition:** Reallocate marketing spend toward high-converting demographic cohorts identified in the Power BI age and frequency breakdowns.
 
 ---
+
+## 📂 Repository Structure
+
+```text
+customer-trends-data-analysis-SQL-Python-PowerBI/
+│
+├── 📜 Customer_Shopping_Behavior_Analysis.ipynb      # Jupyter Notebook for data processing and analysis
+├── 📜 customer_behavior_sql_queries.sql              # SQL queries used for database insights extraction
+├── 📊 customer_behavior_dashboard.pbix               # Power BI dashboard file for visual data storytelling
+└── 📄 README.md                                      # Project documentation and guide
+
+
