@@ -124,8 +124,10 @@ customer-trends-data-analysis-SQL-Python-PowerBI/
 ├── 📜 Customer_Shopping_Behavior_Analysis.ipynb      # Jupyter Notebook for data processing and analysis
 ├── 📜 customer_behavior_SQL_queries.sql              # SQL queries used for database insights extraction
 ├── 📊 customer_behavior_dashboard.pbix               # Power BI dashboard file for visual data storytelling
-├── 📊 Business Problem Document.pdf                  # Business problem given by stakeholders to analyze
-├── 📊 Business Problem Document.pdf                  # Business problem given by stakeholders to analyze
+├── 📜 Business Problem Document.pdf                  # Business problem given by stakeholders to analyze
+├── 📜 Customer-Shopping-Behavior-Analysis.pptx       # Powerpoint presentation for stakeholders about the analysis
+├── 📊 My_PowerBi_Interactive.mov                     # Interactive video of the dashboard
+├── 📜 customer_shopping_behavior.csv                 # Initial raw dataset given by the company               
 └── 📄 README.md                                      # Project documentation and guide
 
 
